@@ -9,7 +9,9 @@
    Built by AlexT https://github.com/tzapu
    Licensed under MIT license
  **************************************************************/
-
+//needed for library
+#include <ESPAsyncWebServer.h>
+#include <ESPAsyncWiFiManager.h>
 #include "WiFiManager.h"
 
 WiFiManagerParameter::WiFiManagerParameter(const char *custom)
@@ -156,7 +158,7 @@ void WiFiManager::setupConfigPortal()
 
 boolean WiFiManager::autoConnect()
 {
-  String ssid = "SUNOVATION-" + String(ESP_getChipId());
+  String ssid = "ESP" + String(ESP_getChipId());
   return autoConnect(ssid.c_str(), NULL);
 }
 
